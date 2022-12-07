@@ -1,4 +1,10 @@
-import { StyleSheet, Text, Pressable, TextInput, View } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  Pressable,
+  Animated,
+  View,
+} from "react-native";
 import React from "react";
 
 //icons
@@ -17,7 +23,7 @@ const DatePicker = ({ text, onDatePickerPress, icon, left }) => {
   );
 };
 
-const ReservationsFilter = () => {
+const ReservationsFilter = ({translateY}) => {
   return (
     // first rov
     <View style={styles.reservationsFilterContainer}>
@@ -52,17 +58,6 @@ const ReservationsFilter = () => {
           />
         </View>
       </View>
-      {/* second row */}
-      <View style={styles.secondRowContainer}>
-        <View style={{ width: "100%" }}>
-          <Text style={styles.sortByDateLabel}>Search for rent:</Text>
-          <TextInput
-            placeholder="Search for rent"
-            placeholderTextColor="#000"
-            style={styles.searchReservation}
-          />
-        </View>
-      </View>
     </View>
   );
 };
@@ -71,10 +66,10 @@ export default ReservationsFilter;
 
 const styles = StyleSheet.create({
   reservationsFilterContainer: {
-    marginTop: 16,
-    backgroundColor: "transparent",
+    marginBottom: 16,
     width: "100%",
-    height: "auto",
+    height: 68,
+    zIndex: 1,
     borderRadius: 12,
   },
   firstRowContainer: {

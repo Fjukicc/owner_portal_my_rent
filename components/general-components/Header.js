@@ -1,9 +1,14 @@
 import { SafeAreaView, View, Text, StyleSheet } from "react-native";
 import React from "react";
 
-const Header = ({ title }) => {
+const Header = ({ title, icon }) => {
   return (
-    <SafeAreaView>
+    <SafeAreaView
+      style={{
+        backgroundColor: "#fff",
+        zIndex: 20,
+      }}
+    >
       <View style={styles.headerContainer}>
         <Text style={styles.headerTitle}>{title}</Text>
       </View>
@@ -19,6 +24,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     flexDirection: "row",
+    backgroundColor: "#fff",
+    marginLeft: 0,
+    zIndex: 100,
   },
   headerTitle: {
     fontSize: 18,

@@ -7,6 +7,7 @@ const UserProvider = ({ children }) => {
   const [userData, setUserData] = useState({
     name: "Andro",
     surname: "Jukic",
+    userId: null,
   });
 
   return (

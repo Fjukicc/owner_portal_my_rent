@@ -36,23 +36,13 @@ const ObjectsScreen = () => {
   };
 
   return (
-    <View style={container.defaultContainer}>
-      <Header title="List of Objects" hasPadding={true} />
-      <View
-        style={styles.subHeaderContainer}
-      >
-        <Text style={styles.subtitle}>All Objects</Text>
-        <ActionButton
-          onButtonPress={onAddNewObjectPressHandler}
-          text="Add New"
-          isIconLeft={false}
-          icon={<Feather name="plus" size={20} color="#000" style={{marginLeft: 4}} />}
-        />
-      </View>
+    <><Header title="List of Objects" hasPadding={true} />
+    <View style={[container.defaultContainer, {paddingVertical: 0}]}>
       <Subheader text="Search for objects" isDropdownShown={false}/>
       <View style={{marginBottom: 16}}/>
       <SmallList data={listOfObjects} onObjectPress={onObjectPressHandler}/>
     </View>
+    </>
   );
 };
 

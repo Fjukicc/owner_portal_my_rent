@@ -21,7 +21,7 @@ export default ActionButton;
 
 const styles = StyleSheet.create({
   buttonContainer: {
-    width: "40%",
+    width: "35%",
     height: 40,
     display: "flex",
     flexDirection: "row",

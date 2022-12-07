@@ -19,12 +19,14 @@ const SettingsScreen = () => {
     setIsLoggedIn(false);
   };
   return (
-    <View style={container.defaultContainer}>
+    <>
       <Header title="Settings" />
-      <View style={{marginTop: 12}}/>
-      <UserInfo/>
-      <MainButton onButtonPress={onLogoutPress} text="Logout" />
-    </View>
+      <View style={[container.defaultContainer, {marginVertical: 0}]}>
+        <View style={{ marginTop: 12 }} />
+        <UserInfo />
+        <MainButton onButtonPress={onLogoutPress} text="Logout" />
+      </View>
+    </>
   );
 };
 

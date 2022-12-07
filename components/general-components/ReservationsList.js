@@ -1,13 +1,20 @@
-import { StyleSheet, Text, View, FlatList } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  FlatList,
+} from "react-native";
 import React from "react";
 
+//components
+import ReservationsFilter from "./ReservationsFilter";
 import moment from "moment";
 //icons
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
 import { Entypo } from "@expo/vector-icons";
-import { FontAwesome } from '@expo/vector-icons';
+import { FontAwesome } from "@expo/vector-icons";
 
 //ONE RESERVATION
 const Reservation = ({ reservation }) => {
@@ -66,12 +73,17 @@ const Reservation = ({ reservation }) => {
         </Text>
       </View>
       <View style={styles.reservationForuthRow}>
-        <Text style={{fontSize: 14}}>{reservation.name}</Text>
+        <Text style={{ fontSize: 14 }}>{reservation.name}</Text>
         <View style={styles.priceContainer}>
           <Text style={{ fontFamily: "Roboto_500Medium", fontSize: 15 }}>
             {reservation.price}
           </Text>
-          <FontAwesome name="euro" size={16} color="black" style={{marginLeft: 4}}/>
+          <FontAwesome
+            name="euro"
+            size={16}
+            color="black"
+            style={{ marginLeft: 4 }}
+          />
         </View>
       </View>
     </View>
@@ -87,7 +99,13 @@ const ReservationsList = ({ data }) => {
         data={data}
         renderItem={renderItem}
         keyExtractor={(reservation) => reservation.id}
-      />
+        showsVerticalScrollIndicator={false}
+        style={{ flex: 1 }}
+        ListHeaderComponent={() => (
+          <ReservationsFilter/>
+        )}
+        bounces={true}
+      ></FlatList>
     </>
   );
 };
@@ -98,18 +116,19 @@ const styles = StyleSheet.create({
   reservationContainer: {
     height: "auto",
     width: "100%",
+    zIndex: 20,
     backgroundColor: "#fff",
     marginBottom: 12,
-    shadowColor: "#d6d6d6",
     borderRadius: 16,
     paddingHorizontal: 12,
     paddingVertical: 16,
+    shadowColor: "#C6CEE3",
     shadowOffset: {
       width: 0,
-      height: 1,
+      height: 2,
     },
-    shadowOpacity: 0.16,
-    shadowRadius: 1.51,
+    shadowOpacity: 0.25,
+    shadowRadius: 1,
     elevation: 2,
   },
   reservationFirstRow: {
@@ -155,6 +174,6 @@ const styles = StyleSheet.create({
   priceContainer: {
     display: "flex",
     flexDirection: "row",
-    alignItems: 'center',
+    alignItems: "center",
   },
 });
