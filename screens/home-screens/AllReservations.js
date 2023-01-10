@@ -1,5 +1,9 @@
-import { StyleSheet, Animated, Text, View } from "react-native";
-import React from "react";
+import { StyleSheet, View, Text } from "react-native";
+import React, { useState } from "react";
+//navigation
+import { useNavigation } from "@react-navigation/native";
+//elements rn
+import { BottomSheet, Button } from "@rneui/themed";
 
 //components
 import Header from "../../components/general-components/Header";
@@ -10,13 +14,41 @@ import { newReservations } from "../../fake-data";
 import { container } from "../../static/Container";
 
 const AllReservations = () => {
+  const navigation = useNavigation();
+  const [isVisible, setIsVisible] = useState(false);
+
+  //navigatie to reservation details
+  const onReservationPressHandler = () => {
+    navigation.navigate("ReservationDetailsScreen");
+  };
+
   return (
     <>
-      <Header title="All Reservations" />
+      <Header
+        title="All Reservations"
+        isFilterShown={true}
+        setIsFilterClicked={setIsVisible}
+        filterClicked={isVisible}
+        isSearchShown={true}
+        searchBarPlaceholder="Search for reservation.."
+      />
       <View style={[container.defaultContainer, { paddingVertical: 0 }]}>
-        <Animated.View style={{ marginTop: 16, flex: 1 }}>
-          <ReservationsList data={newReservations}/>
-        </Animated.View>
+        <View style={{ flex: 1 }}>
+          <ReservationsList
+            onReservationPressHandler={onReservationPressHandler}
+            data={newReservations}
+            areDatesShown={true}
+          />
+          <BottomSheet
+            onBackdropPress={()=>setIsVisible(false)}
+            modalProps={{}}
+            isVisible={isVisible}
+          >
+            <View style={styles.bottomSheetContainer}>
+
+            </View>
+          </BottomSheet>
+        </View>
       </View>
     </>
   );
@@ -29,4 +61,9 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 20,
   },
+  bottomSheetContainer:{
+    height: 444,
+    width: "100%",
+    backgroundColor: "#fff",
+  }
 });

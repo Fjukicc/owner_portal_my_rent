@@ -6,7 +6,7 @@ const MainButton = ({ onButtonPress, text, icon }) => {
     <Pressable
       style={({ pressed }) => [
         styles.buttonContainer,
-        { opacity: pressed ? "0.7" : "1" },
+        { opacity: pressed ? 0.7 : 1 },
       ]}
       onPress={onButtonPress}
     >
@@ -21,19 +21,19 @@ export default MainButton;
 const styles = StyleSheet.create({
   buttonContainer: {
     width: "100%",
-    height: 44,
+    height: 42,
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#000",
-    borderRadius: 40,
+    backgroundColor: "#2176FF",
+    borderRadius: 4,
   },
   buttonText: {
     color: "#fff",
     fontWeight: "800",
     fontFamily: "Roboto_700Bold",
-    fontSize: 14,
+    fontSize: 16,
     marginLeft: 8,
   },
 });

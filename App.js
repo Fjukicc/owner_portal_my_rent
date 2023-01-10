@@ -1,9 +1,8 @@
-import { Text } from 'react-native';
 //navigators
-import LoginNavigator from './navigation/LoginNavigator';
-
+import LoginNavigator from "./navigation/LoginNavigator";
+import { Text } from "react-native";
 //context
-import UserProvider from './context/UserProvider';
+import UserProvider from "./context/UserProvider";
 
 //fonts
 import {
@@ -20,8 +19,7 @@ import {
   Roboto_700Bold_Italic,
   Roboto_900Black,
   Roboto_900Black_Italic,
-} from '@expo-google-fonts/roboto';
-
+} from "@expo-google-fonts/roboto";
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -38,14 +36,14 @@ export default function App() {
     Roboto_900Black,
     Roboto_900Black_Italic,
   });
-  
-  if(!fontsLoaded){
-    return (<Text>App is loading...</Text>);
+
+  if (!fontsLoaded) {
+    return <Text>App is loading...</Text>;
   }
 
   return (
-    <UserProvider>
-      <LoginNavigator/>
-    </UserProvider>
+      <UserProvider>
+        <LoginNavigator />
+      </UserProvider>
   );
 }

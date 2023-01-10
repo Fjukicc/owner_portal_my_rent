@@ -6,13 +6,16 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Feather } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
+import { FontAwesome5 } from "@expo/vector-icons";
 
 //screens
 import ObjectNavigator from "./screen-navigators/ObjectNavigator";
-import HomeScreen from "../screens/home-screens/HomeScreen";
-import InvoicesScreen from "../screens/home-screens/InvoicesScreen";
+import HomeScreenNavigator from "./screen-navigators/HomeScreenNavigator";
+// import NotesScreen from "../screens/home-screens/NotesScreen";
+import NotesNavigator from "./screen-navigators/NotesNavigator";
 import SettingsScreen from "../screens/home-screens/SettingsScreen";
-import AllReservations from "../screens/home-screens/AllReservations";
+import CalendarNavigator from "./screen-navigators/CalendarNavigator";
+import AllReservationsNavigator from "./screen-navigators/AllReservationsNavigator";
 
 const Tab = createBottomTabNavigator();
 
@@ -24,16 +27,22 @@ const MainNavigator = () => {
       }}
     >
       <Tab.Screen
-        name="HomeScreen"
-        component={HomeScreen}
+        name="HomeScreenNavigator"
+        component={HomeScreenNavigator}
         options={{
-          tabBarLabel: "Upcoming",
+          tabBarLabel: "Home",
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons
-            name="calendar-arrow-right"
-            size={size}
-            color={color}
-          />
+            <Feather name="home" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="AllReservationsNavigator"
+        component={AllReservationsNavigator}
+        options={{
+          tabBarLabel: "Reservations",
+          tabBarIcon: ({ color, size }) => (
+            <Feather name="list" size={size} color={color} />
           ),
         }}
       />
@@ -52,22 +61,22 @@ const MainNavigator = () => {
         }}
       />
       <Tab.Screen
-        name="AllReservationsScreen"
-        component={AllReservations}
+        name="CalendarNavigator"
+        component={CalendarNavigator}
         options={{
-          tabBarLabel: "Reservations",
+          tabBarLabel: "Calendar",
           tabBarIcon: ({ color, size }) => (
-            <Feather name="list" size={size} color={color} />
+            <Feather name="calendar" size={size} color={color} />
           ),
         }}
       />
       <Tab.Screen
-        name="InvoicesScreen"
-        component={InvoicesScreen}
+        name="NotesNavigator"
+        component={NotesNavigator}
         options={{
-          tabBarLabel: "Invoices",
+          tabBarLabel: "My Notes",
           tabBarIcon: ({ color, size }) => (
-            <MaterialIcons name="account-balance" size={size} color={color} />
+            <FontAwesome5 name="sticky-note" size={size} color={color} />
           ),
         }}
       />

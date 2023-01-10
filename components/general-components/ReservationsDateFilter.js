@@ -6,10 +6,8 @@ import {
   View,
 } from "react-native";
 import React from "react";
-
 //icons
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-
 //date time picker
 import DateTimePicker from "@react-native-community/datetimepicker";
 
@@ -23,11 +21,11 @@ const DatePicker = ({ text, onDatePickerPress, icon, left }) => {
   );
 };
 
-const ReservationsFilter = ({translateY}) => {
+const ReservationsFilter = () => {
   return (
     // first rov
     <View style={styles.reservationsFilterContainer}>
-      <Text style={styles.sortByDateLabel}>Sort by date:</Text>
+      <Text style={styles.sortByDateLabel}>Filter by date:</Text>
       <View style={styles.firstRowContainer}>
         <View style={styles.datePickerViewContainer}>
           <DatePicker
@@ -66,7 +64,7 @@ export default ReservationsFilter;
 
 const styles = StyleSheet.create({
   reservationsFilterContainer: {
-    marginBottom: 16,
+    marginVertical: 16,
     width: "100%",
     height: 68,
     zIndex: 1,
@@ -91,9 +89,10 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
+    borderWidth: 0.5,
     borderRadius: 8,
-    borderColor: "black",
-    borderWidth: 2,
+    height: 40,
+    color: "gray",
     paddingHorizontal: 6,
     paddingVertical: 10,
     alignItems: "center",

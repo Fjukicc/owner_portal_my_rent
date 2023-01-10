@@ -91,14 +91,19 @@ const styles = StyleSheet.create({
   dateTextContainer:{
     display: "flex",
     alignItems: "center",
+    padding: 8,
+    paddingHorizontal: 14,
+    borderRadius: 12,
   },
   dateLabel:{
     fontFamily: "Roboto_700Bold",
+    color: "#000",
     fontSize: 18,
     marginBottom: 4,
   },
   dateDate:{
     fontFamily: "Roboto_400Regular",
+    color: "#000",
     fontSize: 16,
   }
 });
