@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React from "react";
 
 //navigation
 import { createStackNavigator } from "@react-navigation/stack";
@@ -16,6 +16,8 @@ import TodayArrivals from "../../screens/home-subscreens/TodayArrivals";
 import TomorrowDepartures from "../../screens/home-subscreens/TomorrowDepartures";
 import TodayDepartures from "../../screens/home-subscreens/TodayDepartures";
 import EditNoteScreen from "../../screens/note-screen/EditNoteScreen";
+import ReservationNotesScreen from "../../screens/shared-screens/ReservationNotesScreen";
+import ReservationAddGuestScreen from "../../screens/shared-screens/ReservationAddGuestScreen";
 
 const Stack = createStackNavigator();
 
@@ -24,7 +26,16 @@ const HomeScreenNavigator = () => {
   const route = useRoute();
   React.useLayoutEffect(() => {
     const routeName = getFocusedRouteNameFromRoute(route);
-    if (routeName === "ReservationDetailsScreen") {
+    if (
+      routeName === "ReservationDetailsScreen" ||
+      routeName === "TomorrowArrivals" ||
+      routeName === "TodayArrivals" ||
+      routeName === "TomorrowDepartures" ||
+      routeName === "TodayDepartures" ||
+      routeName === "ReservationAddGuestScreen" ||
+      routeName === "ReservationNotesScreen" ||
+      routeName === "EditNoteScreen"
+    ) {
       navigation.setOptions({ tabBarStyle: { display: "none" } });
     } else {
       navigation.setOptions({ tabBarStyle: { display: "flex" } });
@@ -42,11 +53,13 @@ const HomeScreenNavigator = () => {
       <Stack.Screen name="TodayArrivals" component={TodayArrivals} />
       <Stack.Screen name="TomorrowDepartures" component={TomorrowDepartures} />
       <Stack.Screen name="TodayDepartures" component={TodayDepartures} />
-      <Stack.Screen name="EditNoteScreen" component={EditNoteScreen}/>
+      <Stack.Screen name="EditNoteScreen" component={EditNoteScreen} />
       <Stack.Screen
         name="ReservationDetailsScreen"
         component={ReservationDetailsScreen}
       />
+      <Stack.Screen name="ReservationAddGuestScreen" component={ReservationAddGuestScreen} />
+      <Stack.Screen name="ReservationNotesScreen" component={ReservationNotesScreen} />
     </Stack.Navigator>
   );
 };

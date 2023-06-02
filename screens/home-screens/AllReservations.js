@@ -17,7 +17,7 @@ const AllReservations = () => {
   const navigation = useNavigation();
   const [isVisible, setIsVisible] = useState(false);
 
-  //navigatie to reservation details
+  //navigatie to reservation details -> treba poslat paramse
   const onReservationPressHandler = () => {
     navigation.navigate("ReservationDetailsScreen");
   };

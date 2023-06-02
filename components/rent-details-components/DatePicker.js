@@ -1,4 +1,4 @@
-import { Platform, Pressable, StyleSheet, Text, View } from "react-native";
+import { Platform, StyleSheet, Text, View } from "react-native";
 import React, { useState } from "react";
 //date picker
 import DateTimePicker from "@react-native-community/datetimepicker";
@@ -6,7 +6,7 @@ import DateTimePicker from "@react-native-community/datetimepicker";
 import { AntDesign } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
 
-const DatePicker = () => {
+const DatePicker = ({title}) => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
 
@@ -34,7 +34,7 @@ const DatePicker = () => {
     <View>
       <View style={styles.headerContainer}>
         <Feather name="calendar" size={22} color="black" />
-        <Text style={styles.headerText}>Dates</Text>
+        <Text style={styles.headerText}>{title}</Text>
       </View>
       <View style={styles.datePickerContainer}>
         <DateTimePicker

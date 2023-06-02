@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React from "react";
 
 //navigation
 import { createStackNavigator } from "@react-navigation/stack";
@@ -14,6 +14,7 @@ import ObjectDetailsScreen from "../../screens/objects-screens/ObjectDetailsScre
 import ReservationDetailsScreen from "../../screens/shared-screens/ReservationDetailsScreen";
 import ReservationAddGuestScreen from "../../screens/shared-screens/ReservationAddGuestScreen";
 import ReservationNotesScreen from "../../screens/shared-screens/ReservationNotesScreen";
+import EditNoteScreen from "../../screens/note-screen/EditNoteScreen";
 
 const Stack = createStackNavigator();
 
@@ -24,7 +25,8 @@ const ObjectNavigator = () => {
     const routeName = getFocusedRouteNameFromRoute(route);
     if (
       routeName === "ReservationDetailsScreen" ||
-      routeName === "ObjectDetailsScreen"
+      routeName === "ObjectDetailsScreen" ||
+      routeName === "ReservationNotesScreen"
     ) {
       navigation.setOptions({ tabBarStyle: { display: "none" } });
     } else {
@@ -52,6 +54,7 @@ const ObjectNavigator = () => {
         component={ReservationAddGuestScreen}
       />
       <Stack.Screen name="ReservationNotesScreen" component={ReservationNotesScreen}/>
+      <Stack.Screen name="EditNoteScreen" component={EditNoteScreen}/>
     </Stack.Navigator>
   );
 };

@@ -86,8 +86,7 @@ const InvoicesScreen = () => {
 
   return (
     <>
-      <Header title="Notes" />
-      <Tab
+      {/* <Tab
         value={index}
         onChange={(e) => setIndex(e)}
         indicatorStyle={{
@@ -175,7 +174,7 @@ const InvoicesScreen = () => {
             </View>
           </>
         </TabView.Item>
-      </TabView>
+      </TabView> */}
     </>
   );
 };

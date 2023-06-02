@@ -51,7 +51,9 @@ const EditObjectReservationScreen = () => {
   }
 
   const onReservationNotesPressHandler = () =>{
-    
+    console.log("dodo")
+    navigation.navigate("ReservationNotesScreen");
+    setIsSpeedDialOpen(false);
   }
 
   return (
@@ -77,7 +79,7 @@ const EditObjectReservationScreen = () => {
             rentSourceData={rentSourceData}
           />
           <Divider style={{ marginVertical: 16 }} />
-          <DatePicker />
+          <DatePicker title="Dates"/>
           <Divider style={{ marginVertical: 16 }} />
           <RentGuestInfo onAddGuestPressHandler={onAddGuestPressHandler}/>
           <Divider style={{ marginVertical: 16 }} />
@@ -124,7 +126,7 @@ const EditObjectReservationScreen = () => {
           color="#388D9F"
           icon={<FontAwesome5 name="sticky-note" size={20} color="white" />}
           title="Reservation Notes"
-          onPress={() => console.log("Add Something")}
+          onPress={onReservationNotesPressHandler}
         />
         <SpeedDial.Action
           color="#388D9F"

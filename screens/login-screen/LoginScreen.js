@@ -2,46 +2,19 @@ import { View, TextInput, Text, StyleSheet } from "react-native";
 import React, { useState, useContext } from "react";
 //context
 import { UserContext } from "../../context/UserProvider";
-//axios
-import axios from "axios";
+//icons
+import { Feather } from "@expo/vector-icons";
 
 //components
 import Button from "../../components/general-components/MainButton";
 //static
 import { container } from "../../static/Container";
-//icons
-import { Feather } from "@expo/vector-icons";
 
 const LoginScreen = () => {
   //user context
   const { setIsLoggedIn } = useContext(UserContext);
 
-  //login states
-  const [usernameText, setUsernameText] = useState("");
-  const [password, setPassword] = useState("");
-
-  const onLoginButtonPress = () => {
-    console.log(usernameText);
-    console.log(password);
-    // fetch('https://apit.my-rent.net/owners_app/rents_rent_add', {
-    //   method: 'POST',
-    //   headers: {
-    //     "Authorization": "735df8e5-df46-11e6-84e2-0050563c3009",
-    //     "Content-Type": "application/json"
-    //   },
-    //   body: JSON.stringify({
-    //     u: usernameText,
-    //     p: password,
-    //   })
-    // }).then((res)=>console.log(JSON.stringify(res))).catch((err)=>console.log(JSON.stringify(err)))
-
-    axios
-      .post(
-        `https:/apit.my-rent.net/owners_app/get_guid?u=${usernameText}&p=${password}`
-      )
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
-  };
+    
 
   return (
     <View style={[container.defaultContainer, { justifyContent: "center" }]}>

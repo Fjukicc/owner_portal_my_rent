@@ -18,7 +18,7 @@ import { Feather } from "@expo/vector-icons";
 //moment js
 import moment from "moment";
 
-const NoteList = ({ data }) => {
+const NoteList = ({ data, title }) => {
   //initilalize navigation
   const navigation = useNavigation();
 
@@ -38,7 +38,7 @@ const NoteList = ({ data }) => {
           color="black"
           style={{ marginRight: 8 }}
         />
-        <Text style={styles.sectionHeader}>All Notes</Text>
+        <Text style={styles.sectionHeader}>{title}</Text>
       </View>
       <Divider style={{ marginTop: 14 }} />
       <View style={styles.firstRowContainer}>

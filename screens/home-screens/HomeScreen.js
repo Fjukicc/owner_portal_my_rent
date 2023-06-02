@@ -1,5 +1,5 @@
-import { View, StyleSheet, ScrollView, Pressable } from "react-native";
-import React, { useState } from "react";
+import { View, StyleSheet, ScrollView } from "react-native";
+import React from "react";
 //navigation
 import { useNavigation } from "@react-navigation/native";
 //moment js
@@ -65,8 +65,18 @@ const HomeScreen = () => {
       <Header title="Home" />
       <ScrollView style={{ flex: 1 }}>
         <View style={container.defaultContainer}>
-          <ArivalsDepartures isArrivals={true} headerText="Arrivals" todayNumber={1} tommorowNumber={4}/>
-          <ArivalsDepartures isArrivals={false} headerText="Departures" todayNumber={0} tommorowNumber={1}/>
+          <ArivalsDepartures
+            isArrivals={true}
+            headerText="Arrivals"
+            todayNumber={1}
+            tommorowNumber={4}
+          />
+          <ArivalsDepartures
+            isArrivals={false}
+            headerText="Departures"
+            todayNumber={0}
+            tommorowNumber={1}
+          />
           <View style={{ marginVertical: 16 }} />
           <TodayNotes data={notesFakeData} />
         </View>

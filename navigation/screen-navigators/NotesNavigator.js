@@ -9,9 +9,10 @@ import {
 } from "@react-navigation/native";
 
 //screens
-import NotesScreen from "../../screens/home-screens/NotesScreen";
+// import NotesScreen from "../../screens/home-screens/NotesScreen";
 import AddNoteScreen from "../../screens/note-screen/AddNoteScreen";
 import EditNoteScreen from "../../screens/note-screen/EditNoteScreen";
+import TopNotesNavigator from "../tab-navigation/TopNotesNavigator";
 
 const Stack = createStackNavigator();
 
@@ -33,7 +34,7 @@ const NotesNavigator = () => {
         headerShown: false,
       }}
     >
-      <Stack.Screen name="NotesScreen" component={NotesScreen} />
+      <Stack.Screen name="NotesScreen" component={TopNotesNavigator} />
       <Stack.Screen
         name="AddNoteScreen"
         component={AddNoteScreen}

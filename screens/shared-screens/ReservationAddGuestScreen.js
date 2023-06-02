@@ -2,17 +2,22 @@ import { ScrollView, StyleSheet, Text, View, TextInput } from "react-native";
 import React, { useState } from "react";
 //icons
 import { Ionicons } from "@expo/vector-icons";
-import { FontAwesome5 } from '@expo/vector-icons';
+import { FontAwesome5 } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 //rn elements
-import { CheckBox } from "@rneui/themed";
+import { CheckBox, Divider } from "@rneui/themed";
 
 //components
 import Header from "../../components/general-components/Header";
 import UniversalDropdown from "../../components/rent-details-components/UniversalDropdown";
 import SelectCountryDropdown from "../../components/rent-details-components/SelectCountryDropdown";
+import DatePicker from "../../components/rent-details-components/DatePicker";
+import BirthPicker from "../../components/rent-details-components/BirthPicker";
+
 //static
 import { container } from "../../static/Container";
+import MainButton from "../../components/general-components/MainButton";
+
 
 //fake data for rent sources
 const typeOfDocumentData = [
@@ -31,12 +36,16 @@ const ReservationAddGuestScreen = () => {
 
   //country of residence state
   const [countryOfResidence, setCountryOfResidence] = useState("");
+  const [countryOfResidenceDropdownShow, setCountryOfResidenceDropdownShow] =
+    useState(false);
 
   //citizenship state
   const [citizenship, setCitizenship] = useState("");
+  const [citizenshipDropdownShow, setCitizenshipDropdownShow] = useState(false);
 
   //country staste
   const [country, setCountry] = useState("");
+  const [countryDropdownShow, setCountryDropdownShow] = useState(false);
 
   return (
     <>
@@ -48,6 +57,9 @@ const ReservationAddGuestScreen = () => {
       />
       <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false}>
         <View style={container.defaultContainer}>
+          {/* User date */}
+          <DatePicker title="Date From/Until"/>
+          <Divider style={{ marginVertical: 16 }} />
           {/* First Name */}
           <View style={styles.inputContainer}>
             <Text style={styles.labelStyle}>First Name</Text>
@@ -65,8 +77,18 @@ const ReservationAddGuestScreen = () => {
           </View>
           {/* Country */}
           <View style={styles.inputContainer}>
-            <Text style={styles.labelStyle}>City</Text>
-            <SelectCountryDropdown value={country} setValue={setCountry}/>
+            <Text style={styles.labelStyle}>Country</Text>
+            <SelectCountryDropdown
+              value={country}
+              setValue={setCountry}
+              show={countryDropdownShow}
+              setShow={setCountryDropdownShow}
+            />
+          </View>
+          {/* Date of Birth */}
+          <View style={styles.inputContainer}>
+            <Text style={styles.labelStyle}>Date of Birth</Text>
+            <BirthPicker/>
           </View>
           {/* Gender */}
           <View style={[styles.inputContainer, { marginTop: 14 }]}>
@@ -125,7 +147,12 @@ const ReservationAddGuestScreen = () => {
               labelText="Type Of Document"
               isLabelShown={false}
               icon={
-                <FontAwesome5 name="address-card" size={24} color="black" style={{marginRight: 4}}/>
+                <FontAwesome5
+                  name="address-card"
+                  size={24}
+                  color="black"
+                  style={{ marginRight: 4 }}
+                />
               }
               dropdownValue={typeOfDocumentValue}
               setDropdownValue={setTypeOfDocumentValue}
@@ -138,10 +165,18 @@ const ReservationAddGuestScreen = () => {
             <Text style={styles.labelStyle}>Document Number</Text>
             <TextInput style={styles.inputStyle} />
           </View>
-          {/* Place of Residence */}
+          {/* Citizenship */}
           <View style={styles.inputContainer}>
-            <Text style={styles.labelStyle}>Place of residence</Text>
-            <TextInput style={styles.inputStyle} />
+            <Text style={styles.labelStyle}>Citizenship</Text>
+            <SelectCountryDropdown
+              value={country}
+              setValue={setCountry}
+              show={countryDropdownShow}
+              setShow={setCountryDropdownShow}
+            />
+          </View>
+          <View style={[styles.inputContainer, {marginVertical: 22}]}>
+            <MainButton text="Save" />
           </View>
         </View>
       </ScrollView>
